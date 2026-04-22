@@ -6,6 +6,7 @@ const zoneResultat = document.getElementById("result");
 const zoneMessage = document.getElementById("feedback");
 const listeEtapes = document.getElementById("steps");
 
+// Chaine de reference pour convertir les chiffres en valeurs (et inversement).
 const CHIFFRES = "0123456789ABCDEF";
 
 // TODO 1
@@ -32,6 +33,10 @@ function nombreValidePourBase(valeur, base) {
   return motifs[base].test(valeur);
 }
 
+/**
+ * Met a jour la liste d'etapes affichee sous le resultat.
+ * @param {string[]} etapes - Liste des etapes a afficher.
+ */
 function afficherEtapes(etapes) {
   listeEtapes.innerHTML = etapes.map((etape) => `<li>${etape}</li>`).join("");
 }
@@ -48,6 +53,8 @@ function lireNombreAvecPuissances(valeurSource, baseSource) {
   // - faire la somme valeurChiffre * baseSource^puissance
   const expression = "A completer";
 
+  // Le format de retour doit rester exactement le meme.
+  // Le reste du programme s'appuie sur ces deux proprietes.
   return {
     valeurDecimale: 0,
     etapes: [
@@ -103,6 +110,10 @@ function calculerDivisionsSuccessives(valeurDecimale, baseCible) {
   };
 }
 
+/**
+ * Fonction principale: lit les entrees, verifie la validite,
+ * lance les calculs, puis met a jour l'affichage.
+ */
 function convertirNombre() {
   const valeurSaisie = champNombre.value.trim();
   const baseDepart = Number(baseDepartSelect.value);
@@ -142,8 +153,10 @@ function convertirNombre() {
   ]);
 }
 
+// Clic sur le bouton -> conversion.
 boutonConvertir.addEventListener("click", convertirNombre);
 
+// Touche Entree dans le champ texte -> conversion.
 champNombre.addEventListener("keydown", (evenement) => {
   if (evenement.key === "Enter") {
     convertirNombre();

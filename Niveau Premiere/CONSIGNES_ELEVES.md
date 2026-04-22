@@ -5,7 +5,7 @@ Completer le code pour obtenir un convertisseur de bases fonctionnel (2, 8, 10, 
 
 ## Fichiers utiles
 - `static/script.js` : logique a completer (TODO 1 a TODO 4)
-- `templates/index.html` : interface deja fournie
+- `templates/index.html` : logique a completer (TODO HTML 1)
 - `app.py` : serveur Flask deja pret
 
 ## Travail demande
